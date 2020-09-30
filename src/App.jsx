@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="main">
       <h1>Welcome!</h1>
-      <img src={require("./assets/images/logo.png")} />
+      <img alt="logo" src={require("./assets/images/logo.png")} />
       <Text />
     </div>
   );
