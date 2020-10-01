@@ -1,6 +1,8 @@
 # Start coding immediately without any config
 Just focus about coding and no more
-# Setup
+# Setup includes:
+- Create react app
 - Eslint (airbnb, react-app)
 - Prettier
-- Husky on commit
+- Husky pre-commit
+- Node-Sass
