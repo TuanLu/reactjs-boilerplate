@@ -1,7 +1,14 @@
 import React from "react";
+import "./index.scss";
 
-export default function Button() {
+export default function Text() {
   return (
-    <div className="sample-btn">Almost before we knew it, we had left the ground</div>
+    <div className="tech">
+      <span>React</span>
+      <span>Eslint</span>
+      <span>Prettier</span>
+      <span>Node Sass</span>
+      <span>Custom Font</span>
+    </div>
   );
 }
