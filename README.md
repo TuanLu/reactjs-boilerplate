@@ -12,10 +12,10 @@ Just focus about coding and no more
 
 # Note
 
-## CSS, SCSS Naming
+#### CSS, SCSS Naming
 
 - Prefer BEM
 
-## Husky not working
+#### Husky not working
 
 - Please run: npm rebuild or yarn rebuild
