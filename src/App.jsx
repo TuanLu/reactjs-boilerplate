@@ -4,9 +4,9 @@ import Text from "./components/Text";
 
 function App() {
   return (
-            <div className="main">
-    <h1>Welcome!!</h1>
-        <img alt="logo" src={require("./assets/images/logo.png")} />
+    <div className="main">
+      <h1>Welcome!!</h1>
+      <img alt="logo" src={require("./assets/images/logo.png")} />
       <Text />
     </div>
   );
