@@ -9,6 +9,7 @@ Just focus about coding and no more
 - Prettier
 - Husky pre-commit
 - Node-Sass
+- Include custom font + google font
 
 # Note
 
