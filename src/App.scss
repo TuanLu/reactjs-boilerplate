@@ -3,3 +3,18 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  &__logo {
+    width: 100px;
+  }
+  &__welcome {
+    padding: 8px;
+    line-height: 18px;
+    color: #006699;
+  }
+}
