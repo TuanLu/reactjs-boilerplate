@@ -1,5 +1,4 @@
-import React from "react";
-import "./index.scss";
+import './index.scss';
 
 export default function Text() {
   return (
@@ -9,6 +8,9 @@ export default function Text() {
       <span>Prettier</span>
       <span>Node Sass</span>
       <span>Custom Font</span>
+      <span>Optional chaining</span>
+      <span>Fast Refresh</span>
+      <span>New JSX Transform</span>
     </div>
   );
 }
