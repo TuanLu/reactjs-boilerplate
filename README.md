@@ -10,6 +10,7 @@ Just focus about coding and no more
 - Husky pre-commit
 - Node-Sass
 - Include custom font + google font
+- Optional chaining
 
 # Note
 
