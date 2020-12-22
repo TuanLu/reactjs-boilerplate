@@ -1,15 +1,14 @@
 import React, {useEffect, useState} from 'react';
+import API from 'src/api/';
 import './index.scss';
 
 export default function Text() {
   const [campaign, setCampaign] = useState([]);
   useEffect(() => {
     const loadUser = async () => {
-      const user = await fetch('/api/user').then((res) => res.json());
-      const {data: campaigns = {}} = await fetch('/api/campaign').then((res) =>
-        res.json()
-      );
-      console.log(campaigns);
+      const {data: campaigns = {}} = await API.get('/campaign');
+      const {data: users = {}} = await API.get('/user');
+      console.log('user data', users);
       setCampaign(campaigns);
     };
     loadUser();
