@@ -1,16 +1,24 @@
+import React, {useEffect, useState} from 'react';
 import './index.scss';
 
 export default function Text() {
+  const [campaign, setCampaign] = useState([]);
+  useEffect(() => {
+    const loadUser = async () => {
+      const user = await fetch('/api/user').then((res) => res.json());
+      const {data: campaigns = {}} = await fetch('/api/campaign').then((res) =>
+        res.json()
+      );
+      console.log(campaigns);
+      setCampaign(campaigns);
+    };
+    loadUser();
+  }, []);
   return (
     <div className="tech">
-      <span>React</span>
-      <span>Eslint</span>
-      <span>Prettier</span>
-      <span>Node Sass</span>
-      <span>Custom Font</span>
-      <span>Optional chaining</span>
-      <span>Fast Refresh</span>
-      <span>New JSX Transform</span>
+      {campaign.map((camp) => (
+        <span key={camp.name}>{camp.name}</span>
+      ))}
     </div>
   );
 }

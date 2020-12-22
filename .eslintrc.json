@@ -1,0 +1,9 @@
+{
+  "extends": ["react-app", "airbnb", "plugin:prettier/recommended"],
+  "rules": {
+    "global-require": 0,
+    "react/jsx-filename-extension": 0,
+    "react/react-in-jsx-scope": 0,
+    "no-unused-vars": "warn"
+  }
+}

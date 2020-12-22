@@ -12,17 +12,4 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  font-size: 20px;
-  &__logo {
-    width: 100px;
-  }
-  &__welcome {
-    margin-top: 16px;
-    padding: 8px;
-    line-height: 18px;
-    color: #006699;
-    font-size: 40px;
-    font-family: Roboto;
-    font-weight: 500;
-  }
 }
