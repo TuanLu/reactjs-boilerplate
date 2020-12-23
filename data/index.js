@@ -1,7 +1,8 @@
 module.exports = {
   user: {
     id: 1,
-    name: 'Update',
+    name: 'Nguyen Van A',
+    email: 'user@coccoc.com'
   },
   campaign: [
     {

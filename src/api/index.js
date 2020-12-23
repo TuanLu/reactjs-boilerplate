@@ -13,9 +13,8 @@ const headers = () => {
 
 const request = (method, endpoint, data) => {
   return new Promise((resolve, reject) => {
-    fetch({
+    fetch(`/api${endpoint}`, {
       method,
-      url: `/api${endpoint}`,
       body: JSON.stringify(data),
       headers: headers()
     })
