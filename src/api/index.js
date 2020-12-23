@@ -1,16 +1,44 @@
-const API = {
-  get: (url) => {
-    if (!url) return Promise.reject();
-    return new Promise((resolve, reject) => {
-      fetch(`/api${url}`, {
-        headers: {}
-      })
-        .then((res) => res.json())
-        .then((data) => resolve(data))
-        .catch((error) => reject(error));
-    });
-  },
-  post: () => {}
+const headers = () => {
+  const token = '';
+  if (process.env.NODE_ENV === 'production') {
+    return {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`
+    };
+  }
+  return {
+    'Content-Type': 'application/json'
+  };
 };
 
-export default API;
+const request = (method, endpoint, data) => {
+  return new Promise((resolve, reject) => {
+    fetch({
+      method,
+      url: `/api${endpoint}`,
+      body: JSON.stringify(data),
+      headers: headers()
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        resolve(res);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
+};
+
+const get = (endpoint) => {
+  return request('get', endpoint);
+};
+
+const post = (endpoint, data = null) => {
+  return request('post', endpoint, data);
+};
+
+export default {
+  get,
+  post,
+  headers
+};
