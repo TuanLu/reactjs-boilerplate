@@ -1,5 +1,5 @@
 import React, { memo, useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import LogoImg from "src/assets/images/logo.png";
 import UserContext from "src/components/context/user";
 import LoginButton from "src/components/common/button";
@@ -9,7 +9,8 @@ import { STORE_KEY } from "src/constants";
 
 const Header = () => {
   const [login, setLogin] = useState(false);
-  const { user, setUser } = useContext(UserContext);
+	const { user, setUser } = useContext(UserContext);
+	const history = useHistory();
   const loadUser = async () => {
 		const { data: userData = {} } = await API.get("/user");
 		const authData = {
@@ -20,6 +21,7 @@ const Header = () => {
 		};
 		setUser(authData);
 		localStorage.setItem(STORE_KEY, JSON.stringify(authData));
+		history.push('/');
   };
 
   const resetUser = () => {
@@ -35,6 +37,7 @@ const Header = () => {
   const logout = () => {
 		setUser(resetUser());
 		setLogin(false);
+		history.push('/');
 	};
 
   const handleLogin = () => {
