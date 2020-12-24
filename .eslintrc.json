@@ -8,6 +8,9 @@
     "import/no-unresolved": 0,
     "import/prefer-default-export": 0,
     "react-hooks/exhaustive-deps": "warn",
-    "react/jsx-one-expression-per-line": 0
+    "react/jsx-one-expression-per-line": 0,
+    "react/jsx-curly-brace-presence": "warn",
+    "react/no-children-prop": "warn",
+    "react/jsx-props-no-spreading": "warn"
   }
 }

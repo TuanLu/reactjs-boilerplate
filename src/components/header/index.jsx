@@ -5,10 +5,11 @@ import React, {
   useState,
   useCallback
 } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import LogoImg from "src/assets/images/logo.png";
 import UserContext from "src/contexts/user";
 import Button from "src/components/common/button";
+import ListItemLink from "src/components/common/list-link";
 import API from "src/api";
 import { STORE_KEY } from "src/constants";
 
@@ -56,6 +57,7 @@ const Header = () => {
       loadUser();
     }
   }, [login, setUser, history]);
+
   return (
     <div className="header">
       <img alt="logo" className="main__logo" src={LogoImg} />
@@ -68,12 +70,8 @@ const Header = () => {
         <Button title="Đăng nhập" onClick={handleLogin} />
       )}
       <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/faq">FAQ</Link>
-        </li>
+        <ListItemLink to="/">Home</ListItemLink>
+        <ListItemLink to="/faq">FAQ</ListItemLink>
       </ul>
     </div>
   );
