@@ -1,1 +1,1 @@
-export const STORE_KEY = 'cc_point_auth';
+export const STORE_KEY = "cc_point_auth";

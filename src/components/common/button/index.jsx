@@ -3,7 +3,7 @@ import "./index.scss";
 
 const Button = ({ title = "Button Title", onClick = () => false }) => {
   return (
-    <button type="button" className={`cp-btn`} onClick={onClick}>
+    <button type="button" className="cp-btn" onClick={onClick}>
       {title}
     </button>
   );

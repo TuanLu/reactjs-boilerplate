@@ -12,14 +12,14 @@ const FAQ = () => {
     if (!faq.length) {
       loadFaqs();
     }
-  }, []);
+  }, [faq, setFaq]);
   return (
     <div className="cp-faq">
       <ul>
-        {faq.map((faq) => (
-          <li key={faq.faq_id}>
-            <h4>{faq.title}</h4>
-            <p style={{ display: "none" }}>{faq.description}</p>
+        {faq.map((faqItem) => (
+          <li key={faqItem.faq_id}>
+            <h4>{faqItem.title}</h4>
+            <p style={{ display: "none" }}>{faqItem.description}</p>
           </li>
         ))}
       </ul>

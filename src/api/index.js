@@ -1,13 +1,13 @@
 const headers = () => {
-  const token = '';
-  if (process.env.NODE_ENV === 'production') {
+  const token = "";
+  if (process.env.NODE_ENV === "production") {
     return {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
       Authorization: `Bearer ${token}`
     };
   }
   return {
-    'Content-Type': 'application/json'
+    "Content-Type": "application/json"
   };
 };
 
@@ -29,11 +29,11 @@ const request = (method, endpoint, data) => {
 };
 
 const get = (endpoint) => {
-  return request('get', endpoint);
+  return request("get", endpoint);
 };
 
 const post = (endpoint, data = null) => {
-  return request('post', endpoint, data);
+  return request("post", endpoint, data);
 };
 
 export default {

@@ -1,4 +1,4 @@
-import React, { useState, lazy, Suspense, useReducer } from "react";
+import React, { useState, lazy, Suspense } from "react";
 import { Switch, Route } from "react-router-dom";
 import Header from "src/components/header";
 import Footer from "src/components/footer";
@@ -13,9 +13,9 @@ const FAQ = lazy(() => import("src/components/pages/faq"));
 
 const userInitialState = {
   auth: {
-    authenticated: false,
+    authenticated: false
   },
-  user: {},
+  user: {}
 };
 
 const oldState = localStorage.getItem(STORE_KEY)
@@ -25,9 +25,9 @@ const oldState = localStorage.getItem(STORE_KEY)
 function App() {
   const [user, setUser] = useState({
     ...userInitialState,
-    ...oldState,
+    ...oldState
   });
-	const [faq, setFaq] = useState([]);
+  const [faq, setFaq] = useState([]);
 
   const getPublicRoutes = () => {
     return (
@@ -64,7 +64,7 @@ function App() {
       <UserProvider
         value={{
           user,
-          setUser,
+          setUser
         }}
       >
         <Header />
