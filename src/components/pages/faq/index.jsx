@@ -1,5 +1,5 @@
 import React, { memo, useEffect, useContext } from "react";
-import FAQContext from "src/components/context/faq";
+import FAQContext from "src/contexts/faq";
 import API from "src/api";
 
 const FAQ = () => {

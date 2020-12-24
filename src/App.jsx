@@ -1,9 +1,9 @@
-import React, { useState, lazy, Suspense } from "react";
+import React, { useState, lazy, Suspense, useReducer } from "react";
 import { Switch, Route } from "react-router-dom";
 import Header from "src/components/header";
 import Footer from "src/components/footer";
-import { UserProvider } from "src/components/context/user";
-import { FAQProvider } from "src/components/context/faq";
+import { UserProvider } from "src/contexts/user";
+import { FAQProvider } from "src/contexts/faq";
 import { STORE_KEY } from "src/constants";
 import "./App.scss";
 
@@ -27,7 +27,8 @@ function App() {
     ...userInitialState,
     ...oldState,
   });
-  const [faq, setFaq] = useState([]);
+	const [faq, setFaq] = useState([]);
+
   const getPublicRoutes = () => {
     return (
       <Switch>

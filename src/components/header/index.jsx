@@ -1,7 +1,7 @@
-import React, { memo, useContext, useEffect, useState } from "react";
+import React, { memo, useContext, useEffect, useState, useCallback } from "react";
 import { Link, useHistory } from "react-router-dom";
 import LogoImg from "src/assets/images/logo.png";
-import UserContext from "src/components/context/user";
+import UserContext from "src/contexts/user";
 import LoginButton from "src/components/common/button";
 import LogoutButton from "src/components/common/button";
 import API from "src/api";
@@ -34,17 +34,17 @@ const Header = () => {
     };
   };
 
-  const logout = () => {
+  const logout = useCallback(() => {
 		setUser(resetUser());
 		setLogin(false);
 		history.push('/');
-	};
+	});
 
-  const handleLogin = () => {
+  const handleLogin = useCallback(() => {
     setTimeout(() => {
       setLogin(true);
     }, 500);
-  };
+  });
 
   useEffect(() => {
     if (login) {
@@ -60,7 +60,7 @@ const Header = () => {
           <LogoutButton title="Đăng xuất" onClick={logout} />
         </>
       ) : (
-        <LoginButton title="Đăng nhập" onClick={() => handleLogin()} />
+        <LoginButton title="Đăng nhập" onClick={handleLogin} />
       )}
       <ul>
         <li>
