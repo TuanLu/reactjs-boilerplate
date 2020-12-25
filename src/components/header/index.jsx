@@ -15,7 +15,7 @@ import Menus from "./menus";
 
 const Header = () => {
   const [login, setLogin] = useState(false);
-  const { user, setUser } = useContext(UserContext);
+  const { setUser, isAuth } = useContext(UserContext);
   const history = useHistory();
 
   const resetUser = () => {
@@ -24,7 +24,7 @@ const Header = () => {
       auth: {
         authenticated: false
       },
-      user: {}
+      info: {}
     };
   };
 
@@ -48,7 +48,7 @@ const Header = () => {
           auth: {
             authenticated: true
           },
-          user: userData
+          info: userData
         };
         setUser(authData);
         localStorage.setItem(STORE_KEY, JSON.stringify(authData));
@@ -61,18 +61,14 @@ const Header = () => {
   return (
     <div className="header">
       <img alt="logo" className="main__logo" src={LogoImg} />
-      {user?.auth?.authenticated ? (
+      {isAuth() ? (
         <>
-          <h1>Welcome: {user?.user?.display_name}</h1>
-          <p>
-            <b>{user?.user?.points}</b>
-          </p>
+          <Menus />
           <Button title="Đăng xuất" onClick={logout} />
         </>
       ) : (
         <Button title="Đăng nhập" onClick={handleLogin} />
       )}
-      <Menus />
     </div>
   );
 };

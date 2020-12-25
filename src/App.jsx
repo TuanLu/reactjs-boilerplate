@@ -19,7 +19,7 @@ const userInitialState = {
   auth: {
     authenticated: false
   },
-  user: {}
+  info: {}
 };
 
 const oldState = localStorage.getItem(STORE_KEY)
@@ -36,9 +36,20 @@ function App() {
   const getPublicRoutes = () => {
     return (
       <Switch>
-        <Route path="/" exact component={Home} />
+        <Route path="*" exact component={Home} />
       </Switch>
     );
+  };
+
+  const isAuth = () => {
+    if (user?.auth?.authenticated && user?.info?.email) {
+      return true;
+    }
+    return false;
+  };
+
+  const getUser = () => {
+    return user?.info || {};
   };
 
   const getPrivateRoutes = () => {
@@ -60,7 +71,7 @@ function App() {
   };
 
   const renderRoute = () => {
-    if (user?.auth?.authenticated) {
+    if (isAuth()) {
       return getPrivateRoutes();
     }
     return getPublicRoutes();
@@ -71,7 +82,9 @@ function App() {
       <UserProvider
         value={{
           user,
-          setUser
+          setUser,
+          isAuth,
+          getUser
         }}
       >
         <Header />

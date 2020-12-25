@@ -2,7 +2,7 @@ import React, { memo } from "react";
 
 const Mission = () => {
   return (
-    <div className="cp-home">
+    <div className="cp-mission">
       <h1>Mission Page</h1>
     </div>
   );

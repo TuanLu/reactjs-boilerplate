@@ -25,25 +25,25 @@ module.exports = {
       point_redeem: 10
     },
   ],
-  recent_winners: [
+  ranking: [
     {
       avatar_url: '',
       email: 'user1@gmail.com',
-      prize_name: 'Prize Name',
+      prize_name: 'Prize Name1',
       prize_image_url: '',
       prize_type: ''
     },
     {
       avatar_url: '',
       email: 'user2@gmail.com',
-      prize_name: 'Prize Name',
+      prize_name: 'Prize Name2',
       prize_image_url: '',
       prize_type: ''
     },
     {
       avatar_url: '',
       email: 'user3@gmail.com',
-      prize_name: 'Prize Name',
+      prize_name: 'Prize Name3',
       prize_image_url: '',
       prize_type: ''
     },
