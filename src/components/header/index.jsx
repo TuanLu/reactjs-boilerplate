@@ -52,7 +52,7 @@ const Header = () => {
         };
         setUser(authData);
         localStorage.setItem(STORE_KEY, JSON.stringify(authData));
-        history.push("/");
+        history.push("/redeem");
       };
       loadUser();
     }
