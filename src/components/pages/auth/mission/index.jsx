@@ -1,11 +1,11 @@
 import React, { memo } from "react";
 
-const AuthHome = () => {
+const Mission = () => {
   return (
     <div className="cp-home">
-      <h1>Auth Home - Welcome User</h1>
+      <h1>Mission Page</h1>
     </div>
   );
 };
 
-export default memo(AuthHome);
+export default memo(Mission);

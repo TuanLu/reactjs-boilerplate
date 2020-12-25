@@ -9,9 +9,9 @@ import { useHistory } from "react-router-dom";
 import LogoImg from "src/assets/images/logo.png";
 import UserContext from "src/contexts/user";
 import Button from "src/components/common/button";
-import ListItemLink from "src/components/common/list-link";
-import API from "src/api";
 import { STORE_KEY } from "src/constants";
+import API from "src/api";
+import Menus from "./menus";
 
 const Header = () => {
   const [login, setLogin] = useState(false);
@@ -64,15 +64,15 @@ const Header = () => {
       {user?.auth?.authenticated ? (
         <>
           <h1>Welcome: {user?.user?.display_name}</h1>
+          <p>
+            <b>{user?.user?.points}</b>
+          </p>
           <Button title="Đăng xuất" onClick={logout} />
         </>
       ) : (
         <Button title="Đăng nhập" onClick={handleLogin} />
       )}
-      <ul>
-        <ListItemLink to="/">Home</ListItemLink>
-        <ListItemLink to="/faq">FAQ</ListItemLink>
-      </ul>
+      <Menus />
     </div>
   );
 };

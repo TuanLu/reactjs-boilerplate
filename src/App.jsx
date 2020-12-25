@@ -1,5 +1,5 @@
 import React, { useState, lazy, Suspense } from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import Header from "src/components/header";
 import Footer from "src/components/footer";
 import { UserProvider } from "src/contexts/user";
@@ -8,8 +8,12 @@ import { STORE_KEY } from "src/constants";
 import "./App.scss";
 
 const Home = lazy(() => import("src/components/pages/home"));
-const AuthHome = lazy(() => import("src/components/pages/auth/home"));
+const RedeemAwards = lazy(() => import("src/components/pages/auth/redeem"));
+const Mission = lazy(() => import("src/components/pages/auth/mission"));
+const Ranking = lazy(() => import("src/components/pages/auth/ranking"));
 const FAQ = lazy(() => import("src/components/pages/faq"));
+const Profile = lazy(() => import("src/components/pages/auth/profile"));
+const NotFoundPage = lazy(() => import("src/components/pages/auth/not-found"));
 
 const userInitialState = {
   auth: {
@@ -33,32 +37,35 @@ function App() {
     return (
       <Switch>
         <Route path="/" exact component={Home} />
-        <Route path="/faq" exact>
-          <FAQProvider value={{ faq, setFaq }}>
-            <FAQ />
-          </FAQProvider>
-        </Route>
       </Switch>
     );
   };
+
   const getPrivateRoutes = () => {
     return (
       <Switch>
-        <Route path="/" exact component={AuthHome} />
+        <Route path="/redeem" component={RedeemAwards} />
+        <Route path="/mission" exact component={Mission} />
+        <Route path="/ranking" exact component={Ranking} />
         <Route path="/faq" exact>
           <FAQProvider value={{ faq, setFaq }}>
             <FAQ />
           </FAQProvider>
         </Route>
+        <Route path="/profile" exact component={Profile} />
+        <Route path="/404" exact component={NotFoundPage} />
+        <Redirect to="/404" />
       </Switch>
     );
   };
+
   const renderRoute = () => {
     if (user?.auth?.authenticated) {
       return getPrivateRoutes();
     }
     return getPublicRoutes();
   };
+
   return (
     <div className="main">
       <UserProvider
